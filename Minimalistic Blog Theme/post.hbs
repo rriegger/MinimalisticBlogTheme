@@ -1,0 +1,60 @@
+{{!< default}}
+
+        <div class="container clearfix">
+          <main role="main" class="content">
+              
+              {{#post}}
+              <article class="{{post_class}} post">
+                <a class="btn" href="{{@blog.url}}" title="Back to homepage">&laquo; Back to home</a>
+                <h1><a href="{{url}}" title="{{title}}">{{title}}</a></h1>
+                <footer class="post-info">Posted on <span class="post-meta"><time datetime="{{date published_at format="YYYY-MM-DD"}}">{{date published_at format="Do MMMM YYYY"}}</time> {{tags separator=", " prefix="Tagged in "}}</span></footer>
+                
+                {{content}}
+                
+                <ul class="share-buttons">
+                    <li>Share this article:</li>
+                    <li><a class="icon-facebook-squared" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook"></a></li>
+                    <li><a class="icon-twitter"  href="https://twitter.com/share?text={{encode title}}&amp;url={{url absolute="true"}}"
+                        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Tweet this page"></a></li>
+                    <li><a class="icon-gplus"  href="https://plus.google.com/share?url={{url absolute="true"}}"
+                       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+"></a></li>
+                    <li><a class="icon-linkedin"  href="https://www.linkedin.com/shareArticle?mini=true&url={{url absolute="true"}}&title={{encode title}}" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;" title="Share on LinkenIn"></a></li>
+                </ul>
+                
+              </article>
+              <div class="comments">
+                <h3>Comments</h3>
+                  <div id="disqus_thread"></div>
+                  <script type="text/javascript">
+                      var disqus_shortname = 'rriegger'; 
+                      var disqus_title = '{{title}}';
+                      var disqus_url = '{{url absolute="true"}}';
+
+                      (function() {
+                          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                      })();
+                  </script>
+                  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                  <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+              </div>
+              {{/post}}
+             
+          </main>
+          <aside class="author">
+            
+            <img class="profile-image" src="{{asset "img/profile-image.jpg"}}" alt="" />
+            <p class="name">by <strong>Raphael Riegger</strong></p>
+            <p class="address">Sydney, Australia</p>
+            <p class="link"><a href="http://rriegger.com" title="Raphael Riegger - UI/UX Designer">rriegger.com</a></p>
+
+            <ul class="social">
+              <li><a class="icon-twitter" href="http://twitter.com/rriegger" title="Follow me on Twitter"></a></li>
+              <li><a class="icon-dribbble" href="https://dribbble.com/rriegger" title="See what I'm working on Dribbble"></a></li>
+              <li><a class="icon-behance" href="https://www.behance.net/rriegger" title="Check out my work on Behance"></a></li>
+            </ul>
+
+          </aside>
+        </div>
